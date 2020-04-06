@@ -1,41 +1,19 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="jumbotron-fluid">
   <div class="container">
     <h1>Welcome to Ski Insider</h1>
      <p>Your source for local ski resort information</p>
-     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> 
+
+     <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" } ) %>
+
    </div>
  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>State</th>
-      <th>Image</th>
-      <th>Epic</th>
-      <th>Ikon</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @resorts.each do |resort| %>
-      <tr>
-        <td><%= resort.name %></td>
-        <td><%= resort.state %></td>
-        <td><%= resort.image %></td>
-        <td><%= resort.epic %></td>
-        <td><%= resort.ikon %></td>
-        <td><%= link_to 'Show', resort %></td>
-        <td><%= link_to 'Edit', edit_resort_path(resort) %></td>
-        <td><%= link_to 'Destroy', resort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
 <%= link_to 'New Resort', new_resort_path %>
+<%= javascript_pack_tag 'resorts', 'data-turbolinks-track': 'reload' %>
+
