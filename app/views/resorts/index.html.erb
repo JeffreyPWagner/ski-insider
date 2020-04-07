@@ -1,14 +1,12 @@
 
+<div class="mainDiv">
+  <h1>Welcome to Ski Insider</h1>
+  <p>Your source for local ski resort information</p>
 
-<div class="jumbotron-fluid">
-  <div class="container">
-    <h1>Welcome to Ski Insider</h1>
-     <p>Your source for local ski resort information</p>
+  <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" } ) %>
 
-     <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" } ) %>
+</div>
 
-   </div>
- </div>
 
 
 
