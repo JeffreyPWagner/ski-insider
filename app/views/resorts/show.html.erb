@@ -27,3 +27,49 @@
 
 <%= link_to 'Edit', edit_resort_path(@resort) %> |
 <%= link_to 'Back', resorts_path %>
+
+<% @resort.tips.each do |tip| %>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @tip.title %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= @tip.body %>
+  </p>
+
+  <p>
+    <strong>Score:</strong>
+    <%= @tip.score %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @tip.category %>
+  </p>
+
+<% end %>
+
+<%= form_for([@resort, @resort.tips.build]) do |form|  %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.number_field :category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,17 +1,12 @@
 
 <div class="mainDiv">
-  <h1>Welcome to Ski Insider</h1>
-  <p>Your source for local ski resort information</p>
+  <h1>Ski Insider</h1>
+  <p>Your source for ski resort information straight from other skiers.</P>
+  <p>Select a resort below to get started:</p>
 
-  <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" } ) %>
+  <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" }, {class: "custom-select"} ) %>
 
 </div>
 
-
-
-
-<br>
-
-<%= link_to 'New Resort', new_resort_path %>
 <%= javascript_pack_tag 'resorts', 'data-turbolinks-track': 'reload' %>
 

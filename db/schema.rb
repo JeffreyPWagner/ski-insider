@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_165827) do
+ActiveRecord::Schema.define(version: 2020_04_08_000312) do
 
   create_table "installs", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 2020_04_07_165827) do
     t.index ["name"], name: "index_resorts_on_name", unique: true
   end
 
+  create_table "tips", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "resort_id", null: false
+    t.integer "user_id", null: false
+    t.integer "score"
+    t.integer "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resort_id"], name: "index_tips_on_resort_id"
+    t.index ["user_id"], name: "index_tips_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -47,4 +60,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_165827) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tips", "resorts"
+  add_foreign_key "tips", "users"
 end

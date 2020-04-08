@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @tip.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @tip.body %>
+</p>
+
+<p>
+  <strong>Resort:</strong>
+  <%= @tip.resort_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tip.user_id %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @tip.score %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @tip.category %>
+</p>
+
+<%= link_to 'Edit', edit_tip_path(@tip) %> |
+<%= link_to 'Back', tips_path %>
