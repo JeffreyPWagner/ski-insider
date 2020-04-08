@@ -10,11 +10,13 @@ class ResortsController < ApplicationController
   # GET /resorts/1
   # GET /resorts/1.json
   def show
+    @user = current_user
   end
 
   # GET /resorts/new
   def new
     @resort = Resort.new
+    @user = current_user
   end
 
   # GET /resorts/1/edit
@@ -25,6 +27,7 @@ class ResortsController < ApplicationController
   # POST /resorts.json
   def create
     @resort = Resort.new(resort_params)
+    @user = current_user
 
     respond_to do |format|
       if @resort.save
@@ -65,6 +68,7 @@ class ResortsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resort
       @resort = Resort.find(params[:id])
+      @user = current_user
     end
 
     # Only allow a list of trusted parameters through.

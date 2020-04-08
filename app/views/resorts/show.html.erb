@@ -32,27 +32,29 @@
 
   <p>
     <strong>Title:</strong>
-    <%= @tip.title %>
+    <%= tip.title %>
   </p>
 
   <p>
     <strong>Body:</strong>
-    <%= @tip.body %>
+    <%= tip.body %>
   </p>
 
   <p>
     <strong>Score:</strong>
-    <%= @tip.score %>
+    <%= tip.score %>
   </p>
 
   <p>
     <strong>Category:</strong>
-    <%= @tip.category %>
+    <%= tip.category %>
   </p>
 
 <% end %>
 
 <%= form_for([@resort, @resort.tips.build]) do |form|  %>
+
+  <%= form.hidden_field :user_id, :value => @user.id %>
 
   <div class="field">
     <%= form.label :title %>
