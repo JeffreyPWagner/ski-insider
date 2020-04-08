@@ -1,56 +1,34 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @resort.name %>
-</p>
+<div class="bg-img" style="background-image: url(<%= rails_blob_url(@resort.trail) %>) !important"></div>
 
-<p>
-  <strong>State:</strong>
-  <%= @resort.state %>
-</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @resort.image %>
-</p>
+<h1><%= @resort.name %> </h1>
 
-<p>
-  <strong>Epic:</strong>
-  <%= @resort.epic %>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Score</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Ikon:</strong>
-  <%= @resort.ikon %>
-</p>
-
-<%= link_to 'Edit', edit_resort_path(@resort) %> |
-<%= link_to 'Back', resorts_path %>
-
-<% @resort.tips.each do |tip| %>
-
-  <p>
-    <strong>Title:</strong>
-    <%= tip.title %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= tip.body %>
-  </p>
-
-  <p>
-    <strong>Score:</strong>
-    <%= tip.score %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= tip.category %>
-  </p>
-
-<% end %>
+  <tbody>
+    <% @resort.tips.each do |tip| %>
+      <tr>
+        <td><%= tip.title %></td>
+        <td><%= tip.body %></td>
+        <td><%= tip.score %></td>
+        <td><%= tip.category %></td>
+        <td><%= link_to 'Show', tip %></td>
+        <td><%= link_to 'Edit', edit_tip_path(tip) %></td>
+        <td><%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= form_for([@resort, @resort.tips.build]) do |form|  %>
 
@@ -75,3 +53,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', resorts_path %>

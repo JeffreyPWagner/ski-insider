@@ -73,6 +73,6 @@ class ResortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resort_params
-      params.require(:resort).permit(:name, :state, :image, :epic, :ikon)
+      params.require(:resort).permit(:name, :state, :image, :epic, :ikon, :trail)
     end
 end
