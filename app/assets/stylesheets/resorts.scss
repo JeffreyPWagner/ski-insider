@@ -95,29 +95,34 @@ p {
     margin-left: 100px;
     margin-top: 50px;
     overflow-y: scroll;
-    max-height: 575px;
+    max-height: 580px;
     width: 1350px;
     float: left;
 }
 
 .title {
     width: 100px;
+    max-width: 100px;
 }
 
 .body {
     width: 800px;
+    max-width: 800px;
 }
 
 .score {
     width: 100px;
+    max-width: 100px;
 }
 
 .category {
     width: 100px;
+    max-width: 100px;
 }
 
 .tipsButton {
     width: 100px;
+    max-width: 100px;
 }
 
 #tip_title,
@@ -129,4 +134,8 @@ p {
 
 #tip_body {
     height: 300px;
+}
+
+#tip_category {
+    margin-top: 0 !important;
 }

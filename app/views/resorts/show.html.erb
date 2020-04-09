@@ -9,7 +9,7 @@
     <thead>
       <tr>
         <th class="title">Title</th>
-        <th class="body">Body</th>
+        <th class="body">Tip</th>
         <th class="score">Score</th>
         <th class="category">Category</th>
         <th colspan="1" class="tipsButton"></th>
@@ -24,8 +24,16 @@
           <td class="body"><%= tip.body %></td>
           <td class="score"><%= tip.score %></td>
           <td class="category"><%= tip.category %></td>
-          <td class="tipsButton"><%= link_to 'Edit', edit_tip_path(tip) %></td>
-          <td class="tipsButton"><%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="tipsButton">
+            <% if current_user == tip.user %>
+              <%= link_to 'Edit', edit_tip_path(tip) %>
+            <% end %>
+          </td>
+          <td class="tipsButton">
+            <% if current_user == tip.user %>
+              <%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -47,7 +55,7 @@
     </div>
 
     <div class="field">
-      <%= form.label :body %>
+      <label for="tip_body">Tip</label>
       <br>
       <%= form.text_area :body %>
     </div>
@@ -55,7 +63,7 @@
     <div class="field">
       <%= form.label :category %>
       <br>
-      <%= form.number_field :category %>
+      <%= form.select :category, Tip.categories.keys.to_a %>
     </div>
 
     <div class="actions">

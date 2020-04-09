@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="localhost:3000">Ski Insider</a>
+  <a class="navbar-brand" href="<%= root_path %>">Ski Insider</a>
   <div class="navbar-text float-right">
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
