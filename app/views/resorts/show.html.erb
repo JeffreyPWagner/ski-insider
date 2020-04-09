@@ -1,11 +1,11 @@
-
+<%= javascript_pack_tag 'tipSort' %>
 <div class="bg-img" style="background-image: url(<%= rails_blob_url(@resort.trail) %>) !important"></div>
 
 
 <h1><%= @resort.name %> </h1>
 
 <div class="tipsTable">
-  <table class="table">
+  <table class="table" id="tipsTable">
     <thead>
       <tr>
         <th class="title">Title</th>
@@ -70,3 +70,5 @@
 </div>
 
 <%= link_to 'Back', resorts_path %>
+
+<%= javascript_pack_tag 'tipSort', 'data-turbolinks-track': 'reload' %>

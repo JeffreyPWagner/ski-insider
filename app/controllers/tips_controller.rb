@@ -49,8 +49,6 @@ class TipsController < ApplicationController
     @resort = Resort.find(@tip.resort_id)
     @tip.destroy
     redirect_to resort_path(@resort)
-    
-    
   end
 
   def upvote
