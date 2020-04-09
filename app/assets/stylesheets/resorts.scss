@@ -15,25 +15,35 @@ select {
     margin-top: 30px !important;
 }
 
-.mainDiv {
-    margin-top: 50px;
-}
-
-.mainDiv h1 {
+h1 {
     color: #fff;
     text-align: center;
     margin-bottom: 30px;
     letter-spacing: -1px;
     font-weight: bold;
-    font-size: 70px;
+    font-size: 80px !important;
+    margin-top: 50px !important;
 }
 
-.mainDiv p {
+h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+p {
     color: #fff;
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 20px;
+}
+
+.mainDiv {
+    margin-top: 50px;
 }
 
 .bg-img {
@@ -48,4 +58,75 @@ select {
     top: 0;
     left: 0;
     z-index: -2;
+}
+
+.table {
+    width: 50% !important;
+    background-color: white;
+    margin: auto !important;
+    table-layout: fixed;
+}
+
+.field,
+.actions {
+    text-align: center;
+    margin: auto;
+}
+
+.field {
+    min-width: 150px !important;
+}
+
+.tips {
+    width: 300px !important;
+    margin-right: 100px;
+    margin-top: 50px;
+    background-color: rgba(65, 65, 65, 0.678);
+    width: fit-content;
+    padding: 10px;
+    color: #fff;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-size: 15px;
+    float: right;
+}
+
+.tipsTable {
+    margin-left: 100px;
+    margin-top: 50px;
+    overflow-y: scroll;
+    max-height: 575px;
+    width: 1350px;
+    float: left;
+}
+
+.title {
+    width: 100px;
+}
+
+.body {
+    width: 800px;
+}
+
+.score {
+    width: 100px;
+}
+
+.category {
+    width: 100px;
+}
+
+.tipsButton {
+    width: 100px;
+}
+
+#tip_title,
+#tip_body,
+#tip_category {
+    width: 250px;
+    overflow: wrap;
+}
+
+#tip_body {
+    height: 300px;
 }
