@@ -9,10 +9,9 @@
     <thead>
       <tr>
         <th class="title">Title</th>
+        <th class="category">Category</th>
         <th class="body">Tip</th>
         <th class="score">Score</th>
-        <th class="category">Category</th>
-        <th colspan="1" class="tipsButton"></th>
         <th colspan="1" class="tipsButton"></th>
       </tr>
     </thead>
@@ -21,19 +20,14 @@
       <% @resort.tips.each do |tip| %>
         <tr>
           <td class="title"><%= tip.title %></td>
+          <td class="category"><%= tip.category %></td>
           <td class="body"><%= tip.body %></td>
           <td class="score"><%= tip.score %></td>
-          <td class="category"><%= tip.category %></td>
-          <td class="tipsButton">
-            <% if current_user == tip.user %>
-              <%= link_to 'Edit', edit_tip_path(tip) %>
-            <% else %>
-              <%= link_to 'Like', tip_upvote_path(:tip_id => tip.id), method: :put %>
-            <% end %>
-          </td>
           <td class="tipsButton">
             <% if current_user == tip.user %>
               <%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+              <%= link_to 'Like', tip_upvote_path(:tip_id => tip.id), method: :put %>
             <% end %>
           </td>
         </tr>

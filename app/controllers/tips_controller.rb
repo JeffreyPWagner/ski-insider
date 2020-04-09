@@ -46,11 +46,11 @@ class TipsController < ApplicationController
   # DELETE /tips/1
   # DELETE /tips/1.json
   def destroy
+    @resort = Resort.find(@tip.resort_id)
     @tip.destroy
-    respond_to do |format|
-      format.html { redirect_to tips_url, notice: 'Tip was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to resort_path(@resort)
+    
+    
   end
 
   def upvote
