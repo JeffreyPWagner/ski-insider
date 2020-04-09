@@ -27,6 +27,8 @@
           <td class="tipsButton">
             <% if current_user == tip.user %>
               <%= link_to 'Edit', edit_tip_path(tip) %>
+            <% else %>
+              <%= link_to 'Like', tip_upvote_path(:tip_id => tip.id), method: :put %>
             <% end %>
           </td>
           <td class="tipsButton">
@@ -47,6 +49,7 @@
   <%= form_for([@resort, @resort.tips.build]) do |form|  %>
 
     <%= form.hidden_field :user_id, :value => @user.id %>
+    <%= form.hidden_field :score, :value => 1 %>
 
     <div class="field">
       <%= form.label :title %>

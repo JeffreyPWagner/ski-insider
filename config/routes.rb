@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   root to: "resorts#index"
 
   resources :resorts do 
-    resources :tips
+    resources :tips 
+  end
+
+  resources :tips do
+    put :upvote
   end
 
 end
