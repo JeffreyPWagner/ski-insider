@@ -5,8 +5,15 @@
   <p>Select a resort below to get started:</p>
 
   <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" }, {class: "custom-select"} ) %>
+  
+  
+  
 
 </div>
+
+<% if current_user.admin? %>
+    <%= link_to  "New Resort", new_resort_path %>
+  <% end %>
 
 <%= javascript_pack_tag 'resorts', 'data-turbolinks-track': 'reload' %>
 
