@@ -1,5 +1,6 @@
 class TipsController < ApplicationController
   before_action :set_tip, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /tips
   # GET /tips.json
@@ -51,8 +52,14 @@ class TipsController < ApplicationController
     redirect_to resort_path(@resort)
   end
 
-  def upvote
-    Tip.increment_counter(:score, params[:tip_id])
+  def vote
+    @tip = Tip.find(params[:tip_id])
+    if current_user.liked? @tip
+      @tip.unliked_by current_user
+    else
+      @tip.liked_by current_user
+    end
+    render 'vote.js.erb'
   end
 
   private

@@ -102,31 +102,20 @@ th {
     max-height: 580px;
     width: 1350px;
     float: left;
+    padding: 0 !important;
 }
 
-.title {
+.title,
+.score,
+.category,
+.tipsButton {
     width: 100px;
     max-width: 100px;
 }
 
 .body {
-    width: 800px;
+    width: 950px;
     max-width: 800px;
-}
-
-.score {
-    width: 100px;
-    max-width: 100px;
-}
-
-.category {
-    width: 100px;
-    max-width: 100px;
-}
-
-.tipsButton {
-    width: 100px;
-    max-width: 100px;
 }
 
 #tip_title,

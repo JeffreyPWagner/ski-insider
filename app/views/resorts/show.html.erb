@@ -18,16 +18,16 @@
 
     <tbody>
       <% @resort.tips.each do |tip| %>
-        <tr>
+        <tr class="tip" data-id="<%= tip.id %>">
           <td class="title"><%= tip.title %></td>
           <td class="category"><%= tip.category %></td>
           <td class="body"><%= tip.body %></td>
-          <td class="score"><%= tip.score %></td>
+          <td class="score"><%= tip.get_likes.count %></td>
           <td class="tipsButton">
             <% if current_user == tip.user %>
               <%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% else %>
-              <%= link_to 'Like', tip_upvote_path(:tip_id => tip.id), method: :put %>
+              <%= link_to 'Like', tip_vote_path(:tip_id => tip.id), method: :put, :remote => true, :class => "btn btn-xs btn-default" %>
             <% end %>
           </td>
         </tr>

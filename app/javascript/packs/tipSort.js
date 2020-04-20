@@ -1,4 +1,4 @@
-//Note: code copied from https://www.w3schools.com/howto/howto_js_sort_table.asp
+//Note: code below copied from https://www.w3schools.com/howto/howto_js_sort_table.asp
 
 th = document.getElementsByTagName('th');
 

@@ -1,0 +1,2 @@
+var $tipRow = $('tr[data-id="<%= @tip.id %>"]')
+$tipRow.find('.score').text('<%= @tip.get_likes.size %>');

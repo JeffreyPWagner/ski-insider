@@ -6,6 +6,11 @@ ruby '2.7.1'
 gem 'devise'
 
 gem 'jquery-turbolinks'
+gem 'jquery-rails'
+
+gem 'acts_as_votable'
+
+gem 'friendly_id', '~> 5.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'

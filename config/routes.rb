@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :tips do
-    put :upvote
+    put :vote
   end
 
 end
