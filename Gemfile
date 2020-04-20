@@ -6,9 +6,13 @@ ruby '2.7.1'
 gem 'devise'
 
 gem 'jquery-turbolinks'
-gem 'jquery-rails'
 
 gem 'acts_as_votable'
+
+gem 'grape'
+gem 'grape-active_model_serializers'
+
+gem 'rack-cors'
 
 gem 'friendly_id', '~> 5.1.0'
 
