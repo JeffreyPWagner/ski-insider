@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class TipsControllerTest < ActionDispatch::IntegrationTest
+  include Warden::Test::Helpers
   setup do
     @tip = tips(:one)
+    @user = users(:one)
+    @user.save
+    login_as(@user, :scope => :user)
   end
 
   test "should get index" do
@@ -15,14 +19,6 @@ class TipsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create tip" do
-    assert_difference('Tip.count') do
-      post tips_url, params: { tip: { body: @tip.body, category: @tip.category, resort_id: @tip.resort_id, score: @tip.score, title: @tip.title, user_id: @tip.user_id } }
-    end
-
-    assert_redirected_to tip_url(Tip.last)
-  end
-
   test "should show tip" do
     get tip_url(@tip)
     assert_response :success
@@ -33,16 +29,5 @@ class TipsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update tip" do
-    patch tip_url(@tip), params: { tip: { body: @tip.body, category: @tip.category, resort_id: @tip.resort_id, score: @tip.score, title: @tip.title, user_id: @tip.user_id } }
-    assert_redirected_to tip_url(@tip)
-  end
-
-  test "should destroy tip" do
-    assert_difference('Tip.count', -1) do
-      delete tip_url(@tip)
-    end
-
-    assert_redirected_to tips_url
-  end
+  
 end

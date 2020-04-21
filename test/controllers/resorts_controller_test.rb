@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class ResortsControllerTest < ActionDispatch::IntegrationTest
+  include Warden::Test::Helpers
   setup do
     @resort = resorts(:one)
+    @user = users(:one)
+    @user.save
+    login_as(@user, :scope => :user)
   end
 
   test "should get index" do
@@ -15,34 +19,15 @@ class ResortsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create resort" do
-    assert_difference('Resort.count') do
-      post resorts_url, params: { resort: { epic: @resort.epic, ikon: @resort.ikon, image-file: @resort.image-file, name: @resort.name, state: @resort.state } }
-    end
-
-    assert_redirected_to resort_url(Resort.last)
-  end
-
-  test "should show resort" do
-    get resort_url(@resort)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_resort_url(@resort)
     assert_response :success
   end
 
   test "should update resort" do
-    patch resort_url(@resort), params: { resort: { epic: @resort.epic, ikon: @resort.ikon, image-file: @resort.image-file, name: @resort.name, state: @resort.state } }
+    patch resort_url(@resort), params: { resort: { epic: @resort.epic, ikon: @resort.ikon, name: @resort.name, state: @resort.state } }
     assert_redirected_to resort_url(@resort)
   end
 
-  test "should destroy resort" do
-    assert_difference('Resort.count', -1) do
-      delete resort_url(@resort)
-    end
 
-    assert_redirected_to resorts_url
-  end
 end

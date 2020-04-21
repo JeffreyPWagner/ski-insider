@@ -3,13 +3,11 @@
 one:
   name: MyString
   state: MyString
-  image-file: MyString
   epic: false
   ikon: false
 
 two:
-  name: MyString
-  state: MyString
-  image-file: MyString
+  name: Resort2
+  state: MyString2
   epic: false
   ikon: false

@@ -16,7 +16,6 @@ class ResortsTest < ApplicationSystemTestCase
 
     check "Epic" if @resort.epic
     check "Ikon" if @resort.ikon
-    fill_in "Image-file", with: @resort.image-file
     fill_in "Name", with: @resort.name
     fill_in "State", with: @resort.state
     click_on "Create Resort"
@@ -31,7 +30,6 @@ class ResortsTest < ApplicationSystemTestCase
 
     check "Epic" if @resort.epic
     check "Ikon" if @resort.ikon
-    fill_in "Image-file", with: @resort.image-file
     fill_in "Name", with: @resort.name
     fill_in "State", with: @resort.state
     click_on "Update Resort"

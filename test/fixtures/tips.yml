@@ -5,13 +5,17 @@ one:
   body: MyText
   resort: one
   user: one
+  resort_id: 1
+  user_id: 1
   score: 1
   category: 1
 
 two:
-  title: MyString
-  body: MyText
+  title: MyString2
+  body: MyText2
   resort: two
   user: two
+  resort_id: 1
+  user_id: 1
   score: 1
   category: 1
