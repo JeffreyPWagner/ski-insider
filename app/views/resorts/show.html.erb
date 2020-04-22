@@ -1,73 +1,79 @@
 <%= javascript_pack_tag 'tipSort' %>
-<div class="bg-img" style="background-image: url(<%= rails_blob_url(@resort.trail) %>) !important"></div>
+<div class="bg-img" style="background-image: linear-gradient(rgba(85, 85, 85, .65), rgba(85, 85, 85, .65)), url(<%= rails_blob_url(@resort.trail) %>) !important"></div>
 
+<div class="row">
+  <div class='col'>
+    <h1><%= @resort.name %> </h1>
+  </div>
+</div>
+  <div class="row">
+    <div class="tipsTable col-8">
+      <table class="table" id="tipsTable">
+        <thead>
+          <tr>
+            <th class="title">Title</th>
+            <th class="category">Category</th>
+            <th class="body">Tip</th>
+            <th class="score">Score</th>
+            <th colspan="1" class="tipsButton"></th>
+          </tr>
+        </thead>
 
-<h1><%= @resort.name %> </h1>
+        <tbody>
+          <% @resort.tips.each do |tip| %>
+            <tr class="tip" data-id="<%= tip.id %>">
+              <td class="title"><%= tip.title %></td>
+              <td class="category"><%= tip.category %></td>
+              <td class="body"><%= tip.body %></td>
+              <td class="score"><%= tip.get_likes.count %></td>
+              <td class="tipsButton">
+                <% if current_user == tip.user %>
+                  <%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% else %>
+                  <%= link_to 'Like', tip_vote_path(:tip_id => tip.id), method: :put, :remote => true, :class => "btn btn-xs btn-default" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-<div class="tipsTable">
-  <table class="table" id="tipsTable">
-    <thead>
-      <tr>
-        <th class="title">Title</th>
-        <th class="category">Category</th>
-        <th class="body">Tip</th>
-        <th class="score">Score</th>
-        <th colspan="1" class="tipsButton"></th>
-      </tr>
-    </thead>
+    <div class="tips col-2">
 
-    <tbody>
-      <% @resort.tips.each do |tip| %>
-        <tr class="tip" data-id="<%= tip.id %>">
-          <td class="title"><%= tip.title %></td>
-          <td class="category"><%= tip.category %></td>
-          <td class="body"><%= tip.body %></td>
-          <td class="score"><%= tip.get_likes.count %></td>
-          <td class="tipsButton">
-            <% if current_user == tip.user %>
-              <%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% else %>
-              <%= link_to 'Like', tip_vote_path(:tip_id => tip.id), method: :put, :remote => true, :class => "btn btn-xs btn-default" %>
-            <% end %>
-          </td>
-        </tr>
+      <h2>Add a Tip!</h2>
+
+      <%= form_for([@resort, @resort.tips.build]) do |form|  %>
+
+        <%= form.hidden_field :user_id, :value => @user.id %>
+        <%= form.hidden_field :score, :value => 1 %>
+
+        <div class="field">
+          <%= form.label :title %>
+          <br>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="field">
+          <label for="tip_body">Tip</label>
+          <br>
+          <%= form.text_area :body %>
+        </div>
+
+        <div class="field">
+          <%= form.label :category %>
+          <br>
+          <%= form.select :category, Tip.categories.keys.to_a %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="tips">
-
-  <h2>Add a Tip!</h2>
-
-  <%= form_for([@resort, @resort.tips.build]) do |form|  %>
-
-    <%= form.hidden_field :user_id, :value => @user.id %>
-    <%= form.hidden_field :score, :value => 1 %>
-
-    <div class="field">
-      <%= form.label :title %>
-      <br>
-      <%= form.text_field :title %>
     </div>
+  </div>
 
-    <div class="field">
-      <label for="tip_body">Tip</label>
-      <br>
-      <%= form.text_area :body %>
-    </div>
 
-    <div class="field">
-      <%= form.label :category %>
-      <br>
-      <%= form.select :category, Tip.categories.keys.to_a %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
-</div>
 
 <%= link_to 'Back', resorts_path %>
 

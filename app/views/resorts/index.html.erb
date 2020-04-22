@@ -1,19 +1,33 @@
 
-<div class="mainDiv">
-  <h1>Ski Insider</h1>
-  <p>Your source for ski resort information straight from other skiers.</P>
-  <p>Select a resort below to get started:</p>
-
-  <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" }, {class: "custom-select"} ) %>
-  
-  
-  
-
+<div class="mainDiv container">
+  <div class="row">
+    <div class="col">
+      <h1>Ski Insider</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>Your source for ski resort information straight from other skiers.</P>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>Select a resort below to get started:</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= collection_select( :resort, :id, Resort.all, :id, :name, { :prompt => "Choose a Resort" }, {class: "custom-select"} ) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <% if current_user.admin? %>
+        <%= link_to  "New Resort", new_resort_path, :class => "btn btn-default resort-btn" %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<% if current_user.admin? %>
-    <%= link_to  "New Resort", new_resort_path %>
-  <% end %>
 
 <%= javascript_pack_tag 'resorts', 'data-turbolinks-track': 'reload' %>
 

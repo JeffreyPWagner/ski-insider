@@ -14,6 +14,10 @@
  *= require_self
  */
     
+    label {
+        color: white;
+    }
+    
     .navbar {
         justify-content: space-between !important;
     }
@@ -23,12 +27,11 @@
         margin-bottom: 0 !important;
     }
     
-    .layer {
-        background-color: rgba(85, 85, 85, 0.5);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
+    .row {
+        width: 100% !important;
+    }
+    
+    #user_email,
+    #user_password {
+        width: 300px;
     }
