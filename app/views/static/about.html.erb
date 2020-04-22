@@ -1,1 +1,16 @@
 <h1>About</h1>
+<h2>Resort API Details</h2>
+<p>GET requests to /api/v1/resorts will return a list of all resorts with their ID, name, and state.</p>
+<p>Example: [{"id":1,"name":"Vail","state":"Colorado"},{"id":2,"name":"Keystone","state":"Colorado"}]</p>
+<br>
+<p>GET requests to /api/v1/resorts/{resortID} will return a single resort with its ID, name, and state.</p>
+<p>Example: {"id":1,"name":"Vail","state":"Colorado"}</p>
+<br>
+<br>
+<h2>Tip API Details</h2>
+<p>GET requests to /api/v1/tips will return a list of all tips with their ID, title, body, resort ID, and score.</p>
+<p>Example: [{"id":1,"title":"Great Ramen","body":"Go to the mountain house for a great ramen lunch","resort_id":1,"score":5},</p>
+<p>{"id":2,"title":"Best Powder","body":"Head to the Game Creek Bowl in the morning for the best snow","resort_id":1,"score":20}</p>
+<br>
+<p>GET requests to /api/v1/tips/{tipID} will return a single tip with its ID, title, body, resort ID, and score.</p>
+<p>Example: {"id":1,"title":"Great Ramen","body":"Go to the mountain house for a great ramen lunch","resort_id":1,"score":5}</p>

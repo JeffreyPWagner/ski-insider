@@ -18,6 +18,13 @@
         color: white;
     }
     
+    h3,
+    a {
+        text-align: center;
+        justify-content: center;
+        color: white;
+    }
+    
     .navbar {
         justify-content: space-between !important;
     }
@@ -29,6 +36,12 @@
     
     .row {
         width: 100% !important;
+    }
+    
+    .edit_user,
+    .button_to {
+        justify-content: center;
+        text-align: center;
     }
     
     #user_email,

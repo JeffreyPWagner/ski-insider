@@ -22,8 +22,11 @@
   </div>
   <div class="row">
     <div class="col">
+      <br>
       <% if current_user.admin? %>
         <%= link_to  "New Resort", new_resort_path, :class => "btn btn-default resort-btn" %>
+      <% else %>
+        <%= link_to "About", "/about", :class => "btn btn-default resort-btn" %>
       <% end %>
     </div>
   </div>
