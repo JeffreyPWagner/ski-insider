@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     put :vote
   end
 
+  get "/:page" => "static#show"
+
 end
