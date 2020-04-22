@@ -22,7 +22,7 @@
     a {
         text-align: center;
         justify-content: center;
-        color: white;
+        color: white !important;
     }
     
     .navbar {
@@ -45,6 +45,7 @@
     }
     
     #user_email,
-    #user_password {
+    #user_password,
+    #user_password_confirmation {
         width: 300px;
     }
